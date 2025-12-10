@@ -26,6 +26,11 @@ schema_write_file = types.FunctionDeclaration(
                 type=types.Type.STRING,
                 description="Write to the file specified.",
             ),
+            "content": types.Schema(
+                type=types.Type.STRING,
+                description="The text content used to write the file."
+            ),
         },
+        required=["file_path", "content"]
     ),
 )
