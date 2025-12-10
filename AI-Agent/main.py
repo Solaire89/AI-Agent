@@ -6,7 +6,7 @@ from prompts import system_prompt
 from dotenv import load_dotenv # type: ignore
 from google import genai
 from google.genai import types # type: ignore
-from functions.get_files_info import available_functions, schema_get_files_info
+from call_function import available_functions, schema_get_files_info
 
 def main():
     parser = argparse.ArgumentParser(description="AI Code Assistant")
