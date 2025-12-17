@@ -6,8 +6,8 @@ from prompts import system_prompt
 from dotenv import load_dotenv # type: ignore
 from google import genai
 from google.genai import types # type: ignore
-from call_function import available_functions, schema_get_files_info
-
+from available_functions import available_functions
+from functions.call_function import call_function
 def main():
     parser = argparse.ArgumentParser(description="AI Code Assistant")
     parser.add_argument("user_prompt", type=str, help="Prompt to send to Gemini")
@@ -47,8 +47,8 @@ def generate_content(client, messages, verbose):
         return
 
     for function_call_part in response.function_calls:
-        print(f"Calling function: {function_call_part.name}({function_call_part.args})")
-
+        result = call_function(function_call_part, verbose)
+        print(result)
 
 if __name__ == "__main__":
     main()
