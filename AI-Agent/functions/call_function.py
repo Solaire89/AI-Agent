@@ -1,9 +1,9 @@
 import os
 
-from get_file_content import get_file_content
-from get_files_info import get_files_info
-from run_python_file import run_python_file
-from write_file import write_file
+from functions.get_file_content import get_file_content
+from functions.get_files_info import get_files_info
+from functions.run_python_file import run_python_file
+from functions.write_file import write_file
 from google.genai import types # type: ignore
 
 working_directory = "./calculator"
@@ -41,7 +41,7 @@ def call_function(function_call_part, verbose=False):
             parts=[
                 types.Part.from_function_response(
                     name=function_call_part.name,
-                    response={f"result: {result}"},
+                    response={f"result": result},
                 )
             ],
         )
