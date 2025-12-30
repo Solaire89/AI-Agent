@@ -36,6 +36,7 @@ def call_function(function_call_part, verbose=False):
             ],
         )
     
+    
     return types.Content(
             role="tool",
             parts=[
